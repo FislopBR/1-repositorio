@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="venda" content="hidden">
+    <title>Pizzaria do Fislop</title>
+    <link rel="stylesheet" href="pizzaria.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Pizzaria do Fislop</h1>
+        <div class="menu">
+            <button onclick="mostrarsecao('cadastro')">Cadastrar Pizza</button>
+            <button onclick="mostrarsecao('consulta')">Consultar Cardápio</button>
+            <button onclick="mostrarsecao('pedido')">Realizar Pedido</button>
+        </div>
+
+<!--seção de cadastro-->
+        <div id="cadastro" class="hidden">
+            <h2>Cadastrar pizza</h2>
+            <div class="form-group">
+                <label for="pizza">nome da pizza</label>
+                <input type="text" id="pizza" placeholder="digite o nome da pizza">
+            </div>
+            <div class="form-group">
+                <label for="preco">preço</label>
+                <input type="number" id="preco" placeholder="digite o preço da pizza">
+            </div>
+            <div class="form-group">
+                <label for="ingredientes">ingredientes</label>
+                <input type="text" id="ingredientes" placeholder="digite os ingredientes da pizza">
+            </div>
+            <button onclick="adicionarPizza()">adicionar pizza</button>
+        </div>
+
+<!--seção de consulta-->
+        <div id="consulta" class="hidden">
+            <h2>Consultar cardapio</h2>
+            <input type="text" id="busca" placeholder="digite o nome da pizza" oninput="buscarpizza()">
+            <table>
+                <thead>
+                    <tr>
+                        <th>nome da pizza</th>
+                        <th>preço</th>
+                        <th>ingredientes</th>
+                    </tr>
+                </thead>
+                <tbody id="lista de pizza">
+                    <!-- As pizzas cadastradas serão exibidas aqui -->
+                </tbody>
+            </table>
+        </div>
+
+<!--seção de pedido-->
+        <div id="pedido" class="hidden">
+            <h2>Realizar Pedido</h2>
+            <div class="form-group">
+                <label for="nomeCliente">Seu nome</label>
+                <input type="text" id="nomeCliente" placeholder="Digite seu nome">
+            </div>
+            <div class="form-group">
+                <label for="pizzaPedido">Escolha a pizza</label>
+                <select id="pizzaPedido">
+                    <!-- Opções preenchidas via JS -->
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="quantidade">Quantidade</label>
+                <input type="number" id="quantidade" min="1" value="1">
+            </div>
+            <button onclick="fazerPedido()">Finalizar Pedido</button>
+            <span id="valorPedido" style="margin-left: 15px; font-weight: bold;"></span>
+            <p id="mensagemPedido" style="color: green;"></p>
+        </div>
+    </div>
+    <script src="pizzaria.js"></script>
+</body>
+</html>
